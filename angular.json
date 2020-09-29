@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "CatalogoPokemon"
+    }
+  },
+  "defaultProject": "CatalogoPokemon",
+  "cli": {
+    "analytics": "0c2d468d-ee28-45f6-86fb-2854da929e36"
+  }
 }
