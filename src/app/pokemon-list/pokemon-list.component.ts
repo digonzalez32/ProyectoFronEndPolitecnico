@@ -8,7 +8,7 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./pokemon-list.component.css']
 })
 export class PokemonListComponent implements OnInit {
-  @Input() url: string;
+  @Input() url: string = "https://pokeapi.co/api/v2/pokemon?limit=9&offset=0";
   listPokemon : any[] = [];
   count;
   nextUrl;
