@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {ApiPokemonService} from '../api-pokemon.service';
-import { Observable } from 'rxjs';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -8,32 +8,27 @@ import { Observable } from 'rxjs';
   styleUrls: ['./pokemon-list.component.css']
 })
 export class PokemonListComponent implements OnInit {
-
+  @Input() url: string;
   listPokemon : any[] = [];
   count;
+  nextUrl;
 
-  constructor(private apiPokemonService: ApiPokemonService) { 
-
-
-    this.apiPokemonService.getPokemonList().subscribe(
+  constructor(private apiPokemonService: ApiPokemonService, private route: ActivatedRoute) {
+    this.apiPokemonService.getPokemonService(this.url).subscribe(
       (data) => {
         this.listPokemon = data['results'];
         this.count = data['count'];
-        for (var poke of this.listPokemon) {
-
-          console.warn(poke.url);
-        }
+        let oldNextUrl = data['next'];
+        this.nextUrl = oldNextUrl.replace(/\:/g,'_v_').replace(/\//g,'_z_').replace(/\?/g,'_x_').replace(/\=/g,'_t_').replace(/\&/g,'_t_');
       },
       (error) => {
         console.error(error);
       }
     );
-
-
-  
   }
 
   ngOnInit() {
+    
   }
 
 }

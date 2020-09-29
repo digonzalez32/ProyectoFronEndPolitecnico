@@ -16,7 +16,7 @@ export  class ApiPokemonService {
   }
 
 
-  getPokemonById(url) {
+  getPokemonService(url) {
     return  this.http.get(url); 
   }
 }

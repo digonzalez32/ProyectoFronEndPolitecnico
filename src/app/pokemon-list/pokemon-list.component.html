@@ -1,7 +1,8 @@
 <div class="container">
-  <p>Catálogo de pokemon 22</p>
-  <h2>{{ count }}</h2>
-  <div *ngFor="let pokemon of listPokemon">
-    <h2>{{ pokemon.name }}</h2>
+  <p>Catálogo de pokemon </p>
+  <div *ngFor='let pokemon of listPokemon;let indexOfelement=index'>
+    <h2>{{ pokemon.name}}</h2>  
+    <img style="max-height: 150px !important; min-height: 150px !important" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{indexOfelement + 1}}.png" />
   </div>
+  <div><a [routerLink]="['/app-pokemon-list', nextUrl]">Proximo</a></div>
 </div>

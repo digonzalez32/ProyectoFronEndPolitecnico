@@ -21,7 +21,8 @@ import { HomeComponent } from './components/home/home.component';
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '**', component: PokemonListComponent }
+      { path: '**', component: PokemonListComponent },
+      { path: 'app-pokemon-list/:urlParam', component: PokemonListComponent },
     ])
   ],
   providers: [ApiPokemonService],
