@@ -13,16 +13,24 @@ export class PokemonListComponent implements OnInit {
   count;
 
   constructor(private apiPokemonService: ApiPokemonService) { 
-    this.apiPokemonService.getPokemonList()
-    .subscribe(
+
+
+    this.apiPokemonService.getPokemonList().subscribe(
       (data) => {
-        this.listPokemon = data['results'],
-        this.count = data['count']
+        this.listPokemon = data['results'];
+        this.count = data['count'];
+        for (var poke of this.listPokemon) {
+
+          console.warn(poke.url);
+        }
       },
       (error) => {
         console.error(error);
       }
     );
+
+
+  
   }
 
   ngOnInit() {
