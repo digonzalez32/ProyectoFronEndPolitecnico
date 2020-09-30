@@ -1,3 +1,28 @@
+.jumbotron {
+  background-color: black;
+  justify-content: space-between;
+}
+
+p {
+  color: white;
+  font-family: sans-serif;
+  font-size: 28px;
+}
+
+strong {
+  font-size: 35px;
+  font-style: italic;
+}
+
+p strong {
+  color: #2847fb;
+}
+
+.begin img {
+  margin: auto;
+  display: flex;
+}
+
 h1 {
   color: yellowgreen;
 }
