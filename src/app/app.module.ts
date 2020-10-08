@@ -1,31 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { ApiPokemonService } from './api-pokemon.service'
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
-import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { HomeComponent } from './components/home/home.component';
-
+import { PokeDetailComponent } from './components/poke-detail/poke-detail.component';
+import { PokeTableComponent } from './components/poke-table/poke-table.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from 'src/shared/material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PokemonListComponent,
+    FooterComponent,
     HeaderComponent,
-    HomeComponent
+    PokeDetailComponent,
+    PokeTableComponent,
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: '**', component: PokemonListComponent },
-      { path: 'app-pokemon-list/:urlParam', component: PokemonListComponent },
-    ])
   ],
-  providers: [ApiPokemonService],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
